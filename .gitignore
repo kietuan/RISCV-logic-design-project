@@ -1,0 +1,9 @@
+.Xil
+project_2.cache/
+project_2.runs/
+vivado.jou
+vivado.log
+vivado_17064.backup.jou
+vivado_17064.backup.log
+*.jou
+*.log
