@@ -1,0 +1,8 @@
+verilog xil_defaultlib --include "C:/Users/tuankiet/App/Xilinx/Vivado/2023.1/data/xilinx_vip/include" --include "../../../../project_2.gen/sources_1/bd/processor/ipshared/ec67/hdl" --include "../../../../project_2.gen/sources_1/bd/processor/ipshared/aed8/hdl" \
+"../../../bd/processor/ip/processor_processing_system7_0_0/sim/processor_processing_system7_0_0.v" \
+"../../../bd/processor/sim/processor.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

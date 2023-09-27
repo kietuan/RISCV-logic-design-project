@@ -1,0 +1,160 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Wed Sep 27 09:33:38 2023
+# Process ID: 13300
+# Current directory: C:/Users/tuankiet/Desktop/project_2
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent21388 C:\Users\tuankiet\Desktop\project_2\project_2.xpr
+# Log file: C:/Users/tuankiet/Desktop/project_2/vivado.log
+# Journal file: C:/Users/tuankiet/Desktop/project_2\vivado.jou
+# Running On: tuankiet, OS: Windows, CPU Frequency: 2112 MHz, CPU Physical cores: 12, Host memory: 8259 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/tuankiet/Desktop/project_2/project_2.xpr
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/bd/processor/processor.bd}
+startgroup
+set_property -dict [list \
+  CONFIG.PCW_EN_CLK1_PORT {1} \
+  CONFIG.PCW_QSPI_GRP_SINGLE_SS_ENABLE {1} \
+] [get_bd_cells processing_system7_0]
+endgroup
+startgroup
+set_property -dict [list \
+  CONFIG.PCW_EN_CLK1_PORT {1} \
+  CONFIG.PCW_FCLK1_PERIPHERAL_CLKSRC {IO PLL} \
+  CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ {1.15200} \
+  CONFIG.PCW_QSPI_GRP_SINGLE_SS_ENABLE {1} \
+] [get_bd_cells processing_system7_0]
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_pins processing_system7_0/FCLK_CLK1]
+endgroup
+startgroup
+set_property -dict [list \
+  CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ {1.15100} \
+  CONFIG.PCW_QSPI_GRP_SINGLE_SS_ENABLE {1} \
+] [get_bd_cells processing_system7_0]
+endgroup
+startgroup
+set_property -dict [list \
+  CONFIG.PCW_FCLK1_PERIPHERAL_CLKSRC {IO PLL} \
+  CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ {1.15200} \
+] [get_bd_cells processing_system7_0]
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:div_gen:5.1 div_gen_0
+endgroup
+delete_bd_objs [get_bd_cells div_gen_0]
+file mkdir C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/new
+close [ open C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/new/clocl_divider.v w ]
+add_files C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/new/clocl_divider.v
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/new/clocl_divider.v] -no_script -reset -force -quiet
+remove_files  C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/new/clocl_divider.v
+file delete -force C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/new/clocl_divider.v
+close [ open C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/new/clock_divider.v w ]
+add_files C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/new/clock_divider.v
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/bd/processor/processor.bd}
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0
+endgroup
+delete_bd_objs [get_bd_cells clk_wiz_0]
+ipx::package_project -root_dir C:/Users/tuankiet/Desktop/project_2/../ip_repo -vendor xilinx.com -library user -taxonomy /UserIP -import_files
+ipx::unload_core c:/Users/tuankiet/Desktop/ip_repo/component.xml
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top clock_divider [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+close_design
+ipx::package_project -root_dir C:/Users/tuankiet/Desktop/project_2/../ip_repo -vendor xilinx.com -library user -taxonomy /UserIP -import_files
+ipx::unload_core c:/Users/tuankiet/Desktop/ip_repo/component.xml
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+close_design
+ipx::package_project -root_dir C:/Users/tuankiet/Desktop/project_2/../ip_repo -vendor xilinx.com -library user -taxonomy /UserIP -import_files
+set_property ipi_drc {ignore_freq_hz false} [ipx::current_core]
+set_property sdx_kernel true [ipx::current_core]
+set_property sdx_kernel_type rtl [ipx::current_core]
+set_property vitis_drc {ctrl_protocol ap_ctrl_hs} [ipx::current_core]
+set_property sdx_kernel false [ipx::current_core]
+set_property sdx_kernel_type {} [ipx::current_core]
+set_property vitis_drc {} [ipx::current_core]
+set_property sdx_kernel true [ipx::current_core]
+set_property sdx_kernel_type rtl [ipx::current_core]
+set_property vitis_drc {ctrl_protocol ap_ctrl_hs} [ipx::current_core]
+set_property sdx_kernel false [ipx::current_core]
+set_property sdx_kernel_type {} [ipx::current_core]
+set_property vitis_drc {} [ipx::current_core]
+set_property sdx_kernel true [ipx::current_core]
+set_property sdx_kernel_type rtl [ipx::current_core]
+set_property vitis_drc {ctrl_protocol ap_ctrl_hs} [ipx::current_core]
+set_property sdx_kernel false [ipx::current_core]
+set_property sdx_kernel_type {} [ipx::current_core]
+set_property vitis_drc {} [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+ipx::unload_core c:/Users/tuankiet/Desktop/ip_repo/component.xml
+open_bd_design {C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/bd/processor/processor.bd}
+ipx::open_ipxact_file c:/Users/tuankiet/Desktop/ip_repo/component.xml
+ipx::merge_project_changes hdl_parameters [ipx::current_core]
+ipx::unload_core c:/Users/tuankiet/Desktop/ip_repo/component.xml
+ipx::open_ipxact_file c:/Users/tuankiet/Desktop/ip_repo/component.xml
+ipx::unload_core c:/Users/tuankiet/Desktop/ip_repo/component.xml
+set_property  ip_repo_paths  C:/Users/tuankiet/Desktop/ip_repo [current_project]
+update_ip_catalog
+open_bd_design {C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/bd/processor/processor.bd}
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:clock_divider:1.0 clock_divider_0
+endgroup
+set_property location {2.5 720 75} [get_bd_cells clock_divider_0]
+delete_bd_objs [get_bd_nets processing_system7_0_FCLK_CLK1] [get_bd_ports FCLK_CLK1_0]
+connect_bd_net [get_bd_pins processing_system7_0/FCLK_CLK1] [get_bd_pins clock_divider_0/SYS_clk]
+startgroup
+make_bd_pins_external  [get_bd_pins clock_divider_0/divided_clk]
+endgroup
+set_property name UART_baud_rate [get_bd_ports divided_clk_0]
+save_bd_design
+update_ip_catalog -rebuild -scan_changes
+report_ip_status -name ip_status
+upgrade_ip -vlnv xilinx.com:user:clock_divider:1.0 [get_ips  processor_clock_divider_0_0] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips processor_clock_divider_0_0] -no_script -sync -force -quiet
+generate_target all [get_files  C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/bd/processor/processor.bd]
+close [ open C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/new/top.v w ]
+add_files C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/new/top.v
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top top [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+delete_bd_objs [get_bd_nets processing_system7_0_FCLK_CLK1] [get_bd_nets clock_divider_0_divided_clk] [get_bd_cells clock_divider_0]
+delete_bd_objs [get_bd_ports UART_baud_rate]
+startgroup
+make_bd_pins_external  [get_bd_pins processing_system7_0/FCLK_CLK1]
+endgroup
+open_bd_design {C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/bd/processor/processor.bd}
+save_bd_design
+generate_target all [get_files  C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/bd/processor/processor.bd]
+export_ip_user_files -of_objects [get_files C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/bd/processor/processor.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/bd/processor/processor.bd] -directory C:/Users/tuankiet/Desktop/project_2/project_2.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/tuankiet/Desktop/project_2/project_2.ip_user_files -ipstatic_source_dir C:/Users/tuankiet/Desktop/project_2/project_2.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/tuankiet/Desktop/project_2/project_2.cache/compile_simlib/modelsim} {questa=C:/Users/tuankiet/Desktop/project_2/project_2.cache/compile_simlib/questa} {riviera=C:/Users/tuankiet/Desktop/project_2/project_2.cache/compile_simlib/riviera} {activehdl=C:/Users/tuankiet/Desktop/project_2/project_2.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/bd/processor/processor.bd}
+set_property name EMIO_UART [get_bd_intf_ports UART_0_0]
+save_bd_design
+generate_target all [get_files  C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/bd/processor/processor.bd]
+export_ip_user_files -of_objects [get_files C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/bd/processor/processor.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files C:/Users/tuankiet/Desktop/project_2/project_2.srcs/sources_1/bd/processor/processor.bd] -directory C:/Users/tuankiet/Desktop/project_2/project_2.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/tuankiet/Desktop/project_2/project_2.ip_user_files -ipstatic_source_dir C:/Users/tuankiet/Desktop/project_2/project_2.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/tuankiet/Desktop/project_2/project_2.cache/compile_simlib/modelsim} {questa=C:/Users/tuankiet/Desktop/project_2/project_2.cache/compile_simlib/questa} {riviera=C:/Users/tuankiet/Desktop/project_2/project_2.cache/compile_simlib/riviera} {activehdl=C:/Users/tuankiet/Desktop/project_2/project_2.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+update_compile_order -fileset sources_1
+ipx::open_ipxact_file c:/Users/tuankiet/Desktop/ip_repo/component.xml
+set_property  ip_repo_paths  {} [current_project]
+update_ip_catalog
+refresh_design
