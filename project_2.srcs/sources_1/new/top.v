@@ -49,6 +49,7 @@ module top(
     wire EMIO_UART_dtrn;
     wire EMIO_UART_ri;
     wire EMIO_UART_rtsn;
+    wire EMIO_UART_rx = FIXED_IO_mio[14];
 
     wire FCLK_CLK1_0;
     wire baud_rate;
