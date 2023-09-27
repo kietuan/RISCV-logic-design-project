@@ -4,7 +4,7 @@ onerror {quit -force}
 transcript on
 
 vlib work
-vmap -link {C:/Users/tuankiet/Desktop/project_2/project_2.cache/compile_simlib/riviera}
+vmap -link {C:/Users/tuankiet/Desktop/RISCV-project/project_2.cache/compile_simlib/riviera}
 vlib riviera/xilinx_vip
 vlib riviera/axi_infrastructure_v1_1_0
 vlib riviera/axi_vip_v1_1_14

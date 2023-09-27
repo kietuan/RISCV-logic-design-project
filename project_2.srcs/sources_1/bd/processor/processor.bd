@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x131BE9D38BA305B6",
+      "boundary_crc": "0xC83008CF9FECB1D3",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../project_2.gen/sources_1/bd/processor",
       "name": "processor",
@@ -187,29 +187,13 @@
         "vlnv_bus_definition": "xilinx.com:interface:uart:1.0",
         "vlnv": "xilinx.com:interface:uart_rtl:1.0",
         "port_maps": {
-          "DTRn": {
-            "physical_name": "EMIO_UART_dtrn",
+          "RxD": {
+            "physical_name": "EMIO_UART_rxd",
+            "direction": "I"
+          },
+          "TxD": {
+            "physical_name": "EMIO_UART_txd",
             "direction": "O"
-          },
-          "RTSn": {
-            "physical_name": "EMIO_UART_rtsn",
-            "direction": "O"
-          },
-          "CTSn": {
-            "physical_name": "EMIO_UART_ctsn",
-            "direction": "I"
-          },
-          "DCDn": {
-            "physical_name": "EMIO_UART_dcdn",
-            "direction": "I"
-          },
-          "DSRn": {
-            "physical_name": "EMIO_UART_dsrn",
-            "direction": "I"
-          },
-          "RI": {
-            "physical_name": "EMIO_UART_ri",
-            "direction": "I"
           }
         }
       }
@@ -508,7 +492,7 @@
             "value": "0"
           },
           "PCW_EN_EMIO_MODEM_UART0": {
-            "value": "1"
+            "value": "0"
           },
           "PCW_EN_EMIO_MODEM_UART1": {
             "value": "0"
@@ -541,7 +525,7 @@
             "value": "0"
           },
           "PCW_EN_EMIO_UART0": {
-            "value": "0"
+            "value": "1"
           },
           "PCW_EN_EMIO_UART1": {
             "value": "0"
@@ -571,7 +555,7 @@
             "value": "0"
           },
           "PCW_EN_MODEM_UART0": {
-            "value": "1"
+            "value": "0"
           },
           "PCW_EN_MODEM_UART1": {
             "value": "0"
@@ -1178,12 +1162,12 @@
           },
           "PCW_MIO_TREE_PERIPHERALS": {
             "value": [
-              "GPIO#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#GPIO#Quad SPI Flash#ENET Reset#GPIO#GPIO#GPIO#GPIO#UART 0#UART 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet",
+              "GPIO#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#GPIO#Quad SPI Flash#ENET Reset#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet",
               "0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#USB Reset#SD 0#GPIO#GPIO#GPIO#GPIO#Enet 0#Enet 0"
             ]
           },
           "PCW_MIO_TREE_SIGNALS": {
-            "value": "gpio[0]#qspi0_ss_b#qspi0_io[0]#qspi0_io[1]#qspi0_io[2]#qspi0_io[3]/HOLD_B#qspi0_sclk#gpio[7]#qspi_fbclk#reset#gpio[10]#gpio[11]#gpio[12]#gpio[13]#rx#tx#tx_clk#txd[0]#txd[1]#txd[2]#txd[3]#tx_ctl#rx_clk#rxd[0]#rxd[1]#rxd[2]#rxd[3]#rx_ctl#data[4]#dir#stp#nxt#data[0]#data[1]#data[2]#data[3]#clk#data[5]#data[6]#data[7]#clk#cmd#data[0]#data[1]#data[2]#data[3]#reset#cd#gpio[48]#gpio[49]#gpio[50]#gpio[51]#mdc#mdio"
+            "value": "gpio[0]#qspi0_ss_b#qspi0_io[0]#qspi0_io[1]#qspi0_io[2]#qspi0_io[3]/HOLD_B#qspi0_sclk#gpio[7]#qspi_fbclk#reset#gpio[10]#gpio[11]#gpio[12]#gpio[13]#gpio[14]#gpio[15]#tx_clk#txd[0]#txd[1]#txd[2]#txd[3]#tx_ctl#rx_clk#rxd[0]#rxd[1]#rxd[2]#rxd[3]#rx_ctl#data[4]#dir#stp#nxt#data[0]#data[1]#data[2]#data[3]#clk#data[5]#data[6]#data[7]#clk#cmd#data[0]#data[1]#data[2]#data[3]#reset#cd#gpio[48]#gpio[49]#gpio[50]#gpio[51]#mdc#mdio"
           },
           "PCW_M_AXI_GP0_ENABLE_STATIC_REMAP": {
             "value": "0"
@@ -1525,10 +1509,7 @@
             "value": "115200"
           },
           "PCW_UART0_GRP_FULL_ENABLE": {
-            "value": "1"
-          },
-          "PCW_UART0_GRP_FULL_IO": {
-            "value": "EMIO"
+            "value": "0"
           },
           "PCW_UART0_HIGHADDR": {
             "value": "0xE0000FFF"
@@ -1537,7 +1518,7 @@
             "value": "1"
           },
           "PCW_UART0_UART0_IO": {
-            "value": "MIO 14 .. 15"
+            "value": "EMIO"
           },
           "PCW_UART1_PERIPHERAL_ENABLE": {
             "value": "0"

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Sep 27 11:34:52 2023" VIVADOVERSION="2023.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Sep 27 17:10:25 2023" VIVADOVERSION="2023.1">
 
   <SYSTEMINFO ARCH="zynq" BOARD="digilentinc.com:arty-z7-20:part0:1.1" DEVICE="7z020" NAME="processor" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -109,39 +109,25 @@
         <CONNECTION INSTANCE="processing_system7_0" PORT="PS_PORB"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="EMIO_UART_dtrn" SIGIS="undef" SIGNAME="processing_system7_0_UART0_DTRN">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="UART0_DTRN"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="EMIO_UART_rtsn" SIGIS="undef" SIGNAME="processing_system7_0_UART0_RTSN">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="UART0_RTSN"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="EMIO_UART_ctsn" SIGIS="undef" SIGNAME="processing_system7_0_UART0_CTSN">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="UART0_CTSN"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="EMIO_UART_dcdn" SIGIS="undef" SIGNAME="processing_system7_0_UART0_DCDN">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="UART0_DCDN"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="EMIO_UART_dsrn" SIGIS="undef" SIGNAME="processing_system7_0_UART0_DSRN">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="UART0_DSRN"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="EMIO_UART_ri" SIGIS="undef" SIGNAME="processing_system7_0_UART0_RIN">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="UART0_RIN"/>
-      </CONNECTIONS>
-    </PORT>
+    <PORT DIR="O" NAME="EMIO_UART_dtrn" SIGIS="undef"/>
+    <PORT DIR="O" NAME="EMIO_UART_rtsn" SIGIS="undef"/>
+    <PORT DIR="I" NAME="EMIO_UART_ctsn" SIGIS="undef"/>
+    <PORT DIR="I" NAME="EMIO_UART_dcdn" SIGIS="undef"/>
+    <PORT DIR="I" NAME="EMIO_UART_dsrn" SIGIS="undef"/>
+    <PORT DIR="I" NAME="EMIO_UART_ri" SIGIS="undef"/>
     <PORT CLKFREQUENCY="1152074" DIR="O" NAME="FCLK_CLK1_0" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK1">
       <CONNECTIONS>
         <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="EMIO_UART_rxd" SIGIS="undef" SIGNAME="processing_system7_0_UART0_RX">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="UART0_RX"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="EMIO_UART_txd" SIGIS="undef" SIGNAME="processing_system7_0_UART0_TX">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="UART0_TX"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -199,6 +185,8 @@
         <PORTMAP LOGICAL="DCDn" PHYSICAL="EMIO_UART_dcdn"/>
         <PORTMAP LOGICAL="DSRn" PHYSICAL="EMIO_UART_dsrn"/>
         <PORTMAP LOGICAL="RI" PHYSICAL="EMIO_UART_ri"/>
+        <PORTMAP LOGICAL="RxD" PHYSICAL="EMIO_UART_rxd"/>
+        <PORTMAP LOGICAL="TxD" PHYSICAL="EMIO_UART_txd"/>
       </PORTMAPS>
     </BUSINTERFACE>
   </EXTERNALINTERFACES>
@@ -494,9 +482,9 @@
         <PARAMETER NAME="PCW_EN_EMIO_WP_SDIO1" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_EMIO_SPI0" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_EMIO_SPI1" VALUE="0"/>
-        <PARAMETER NAME="PCW_EN_EMIO_UART0" VALUE="0"/>
+        <PARAMETER NAME="PCW_EN_EMIO_UART0" VALUE="1"/>
         <PARAMETER NAME="PCW_EN_EMIO_UART1" VALUE="0"/>
-        <PARAMETER NAME="PCW_EN_EMIO_MODEM_UART0" VALUE="1"/>
+        <PARAMETER NAME="PCW_EN_EMIO_MODEM_UART0" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_EMIO_MODEM_UART1" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_EMIO_TTC0" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_EMIO_TTC1" VALUE="0"/>
@@ -601,7 +589,7 @@
         <PARAMETER NAME="PCW_EN_SPI1" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_UART0" VALUE="1"/>
         <PARAMETER NAME="PCW_EN_UART1" VALUE="0"/>
-        <PARAMETER NAME="PCW_EN_MODEM_UART0" VALUE="1"/>
+        <PARAMETER NAME="PCW_EN_MODEM_UART0" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_MODEM_UART1" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_TTC0" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_TTC1" VALUE="0"/>
@@ -760,9 +748,9 @@
         <PARAMETER NAME="PCW_SD1_GRP_POW_ENABLE" VALUE="0"/>
         <PARAMETER NAME="PCW_SD1_GRP_POW_IO" VALUE="&lt;Select>"/>
         <PARAMETER NAME="PCW_UART0_PERIPHERAL_ENABLE" VALUE="1"/>
-        <PARAMETER NAME="PCW_UART0_UART0_IO" VALUE="MIO 14 .. 15"/>
-        <PARAMETER NAME="PCW_UART0_GRP_FULL_ENABLE" VALUE="1"/>
-        <PARAMETER NAME="PCW_UART0_GRP_FULL_IO" VALUE="EMIO"/>
+        <PARAMETER NAME="PCW_UART0_UART0_IO" VALUE="EMIO"/>
+        <PARAMETER NAME="PCW_UART0_GRP_FULL_ENABLE" VALUE="0"/>
+        <PARAMETER NAME="PCW_UART0_GRP_FULL_IO" VALUE="&lt;Select>"/>
         <PARAMETER NAME="PCW_UART1_PERIPHERAL_ENABLE" VALUE="0"/>
         <PARAMETER NAME="PCW_UART1_UART1_IO" VALUE="&lt;Select>"/>
         <PARAMETER NAME="PCW_UART1_GRP_FULL_ENABLE" VALUE="0"/>
@@ -1091,8 +1079,8 @@
         <PARAMETER NAME="PCW_MIO_53_SLEW" VALUE="slow"/>
         <PARAMETER NAME="preset" VALUE="None"/>
         <PARAMETER NAME="PCW_UIPARAM_GENERATE_SUMMARY" VALUE="NA"/>
-        <PARAMETER NAME="PCW_MIO_TREE_PERIPHERALS" VALUE="GPIO#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#GPIO#Quad SPI Flash#ENET Reset#GPIO#GPIO#GPIO#GPIO#UART 0#UART 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#USB Reset#SD 0#GPIO#GPIO#GPIO#GPIO#Enet 0#Enet 0"/>
-        <PARAMETER NAME="PCW_MIO_TREE_SIGNALS" VALUE="gpio[0]#qspi0_ss_b#qspi0_io[0]#qspi0_io[1]#qspi0_io[2]#qspi0_io[3]/HOLD_B#qspi0_sclk#gpio[7]#qspi_fbclk#reset#gpio[10]#gpio[11]#gpio[12]#gpio[13]#rx#tx#tx_clk#txd[0]#txd[1]#txd[2]#txd[3]#tx_ctl#rx_clk#rxd[0]#rxd[1]#rxd[2]#rxd[3]#rx_ctl#data[4]#dir#stp#nxt#data[0]#data[1]#data[2]#data[3]#clk#data[5]#data[6]#data[7]#clk#cmd#data[0]#data[1]#data[2]#data[3]#reset#cd#gpio[48]#gpio[49]#gpio[50]#gpio[51]#mdc#mdio"/>
+        <PARAMETER NAME="PCW_MIO_TREE_PERIPHERALS" VALUE="GPIO#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#GPIO#Quad SPI Flash#ENET Reset#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#USB Reset#SD 0#GPIO#GPIO#GPIO#GPIO#Enet 0#Enet 0"/>
+        <PARAMETER NAME="PCW_MIO_TREE_SIGNALS" VALUE="gpio[0]#qspi0_ss_b#qspi0_io[0]#qspi0_io[1]#qspi0_io[2]#qspi0_io[3]/HOLD_B#qspi0_sclk#gpio[7]#qspi_fbclk#reset#gpio[10]#gpio[11]#gpio[12]#gpio[13]#gpio[14]#gpio[15]#tx_clk#txd[0]#txd[1]#txd[2]#txd[3]#tx_ctl#rx_clk#rxd[0]#rxd[1]#rxd[2]#rxd[3]#rx_ctl#data[4]#dir#stp#nxt#data[0]#data[1]#data[2]#data[3]#clk#data[5]#data[6]#data[7]#clk#cmd#data[0]#data[1]#data[2]#data[3]#reset#cd#gpio[48]#gpio[49]#gpio[50]#gpio[51]#mdc#mdio"/>
         <PARAMETER NAME="PCW_PS7_SI_REV" VALUE="PRODUCTION"/>
         <PARAMETER NAME="PCW_FPGA_FCLK0_ENABLE" VALUE="1"/>
         <PARAMETER NAME="PCW_FPGA_FCLK1_ENABLE" VALUE="1"/>
@@ -1146,34 +1134,14 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="O" NAME="UART0_DTRN" SIGIS="undef" SIGNAME="processing_system7_0_UART0_DTRN">
+        <PORT DIR="O" NAME="UART0_TX" SIGIS="undef" SIGNAME="processing_system7_0_UART0_TX">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="processor_imp" PORT="EMIO_UART_dtrn"/>
+            <CONNECTION INSTANCE="processor_imp" PORT="EMIO_UART_txd"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="UART0_RTSN" SIGIS="undef" SIGNAME="processing_system7_0_UART0_RTSN">
+        <PORT DIR="I" NAME="UART0_RX" SIGIS="undef" SIGNAME="processing_system7_0_UART0_RX">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="processor_imp" PORT="EMIO_UART_rtsn"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="UART0_CTSN" SIGIS="undef" SIGNAME="processing_system7_0_UART0_CTSN">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="processor_imp" PORT="EMIO_UART_ctsn"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="UART0_DCDN" SIGIS="undef" SIGNAME="processing_system7_0_UART0_DCDN">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="processor_imp" PORT="EMIO_UART_dcdn"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="UART0_DSRN" SIGIS="undef" SIGNAME="processing_system7_0_UART0_DSRN">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="processor_imp" PORT="EMIO_UART_dsrn"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="UART0_RIN" SIGIS="undef" SIGNAME="processing_system7_0_UART0_RIN">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="processor_imp" PORT="EMIO_UART_ri"/>
+            <CONNECTION INSTANCE="processor_imp" PORT="EMIO_UART_rxd"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="1" NAME="USB0_PORT_INDCTL" RIGHT="0" SIGIS="undef"/>
@@ -1386,12 +1354,8 @@
         </BUSINTERFACE>
         <BUSINTERFACE BUSNAME="processing_system7_0_UART_0" NAME="UART_0" TYPE="INITIATOR" VLNV="xilinx.com:interface:uart:1.0">
           <PORTMAPS>
-            <PORTMAP LOGICAL="DTRn" PHYSICAL="UART0_DTRN"/>
-            <PORTMAP LOGICAL="RTSn" PHYSICAL="UART0_RTSN"/>
-            <PORTMAP LOGICAL="CTSn" PHYSICAL="UART0_CTSN"/>
-            <PORTMAP LOGICAL="DCDn" PHYSICAL="UART0_DCDN"/>
-            <PORTMAP LOGICAL="DSRn" PHYSICAL="UART0_DSRN"/>
-            <PORTMAP LOGICAL="RI" PHYSICAL="UART0_RIN"/>
+            <PORTMAP LOGICAL="TxD" PHYSICAL="UART0_TX"/>
+            <PORTMAP LOGICAL="RxD" PHYSICAL="UART0_RX"/>
           </PORTMAPS>
         </BUSINTERFACE>
         <BUSINTERFACE BUSNAME="__NOC__" NAME="USBIND_0" TYPE="INITIATOR" VLNV="xilinx.com:display_processing_system7:usbctrl:1.0">

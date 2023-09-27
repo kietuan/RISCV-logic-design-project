@@ -58,12 +58,8 @@ C_M_AXI_GP1_THREAD_ID_WIDTH=12,C_NUM_F2P_INTR_INPUTS=1,C_IRQ_F2P_MODE=DIRECT,C_D
 N=1,C_GP1_EN_MODIFIABLE_TXN=1}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module processor_processing_system7_0_0 (
-  UART0_DTRN,
-  UART0_RTSN,
-  UART0_CTSN,
-  UART0_DCDN,
-  UART0_DSRN,
-  UART0_RIN,
+  UART0_TX,
+  UART0_RX,
   USB0_PORT_INDCTL,
   USB0_VBUS_PWRSELECT,
   USB0_VBUS_PWRFAULT,
@@ -132,18 +128,10 @@ module processor_processing_system7_0_0 (
   PS_PORB
 );
 
-(* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 UART_0 DTRn" *)
-output wire UART0_DTRN;
-(* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 UART_0 RTSn" *)
-output wire UART0_RTSN;
-(* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 UART_0 CTSn" *)
-input wire UART0_CTSN;
-(* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 UART_0 DCDn" *)
-input wire UART0_DCDN;
-(* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 UART_0 DSRn" *)
-input wire UART0_DSRN;
-(* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 UART_0 RI" *)
-input wire UART0_RIN;
+(* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 UART_0 TxD" *)
+output wire UART0_TX;
+(* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 UART_0 RxD" *)
+input wire UART0_RX;
 (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:usbctrl:1.0 USBIND_0 PORT_INDCTL" *)
 output wire [1 : 0] USB0_PORT_INDCTL;
 (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:usbctrl:1.0 USBIND_0 VBUS_PWRSELECT" *)
@@ -470,14 +458,14 @@ inout wire PS_PORB;
     .SPI1_SS1_O(),
     .SPI1_SS2_O(),
     .SPI1_SS_T(),
-    .UART0_DTRN(UART0_DTRN),
-    .UART0_RTSN(UART0_RTSN),
-    .UART0_TX(),
-    .UART0_CTSN(UART0_CTSN),
-    .UART0_DCDN(UART0_DCDN),
-    .UART0_DSRN(UART0_DSRN),
-    .UART0_RIN(UART0_RIN),
-    .UART0_RX(1'B1),
+    .UART0_DTRN(),
+    .UART0_RTSN(),
+    .UART0_TX(UART0_TX),
+    .UART0_CTSN(1'B0),
+    .UART0_DCDN(1'B0),
+    .UART0_DSRN(1'B0),
+    .UART0_RIN(1'B0),
+    .UART0_RX(UART0_RX),
     .UART1_DTRN(),
     .UART1_RTSN(),
     .UART1_TX(),

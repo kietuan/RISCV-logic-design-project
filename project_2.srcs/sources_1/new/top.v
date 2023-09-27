@@ -43,13 +43,14 @@ module top(
     inout wire          FIXED_IO_ps_porb,
     inout wire          FIXED_IO_ps_srstb
 );
-    wire EMIO_UART_ctsn;
-    wire EMIO_UART_dcdn;
-    wire EMIO_UART_dsrn;
-    wire EMIO_UART_dtrn;
-    wire EMIO_UART_ri;
-    wire EMIO_UART_rtsn;
-    wire EMIO_UART_rx = FIXED_IO_mio[14];
+//    wire EMIO_UART_ctsn;
+//    wire EMIO_UART_dcdn;
+//    wire EMIO_UART_dsrn;
+//    wire EMIO_UART_dtrn;
+//    wire EMIO_UART_ri;
+//    wire EMIO_UART_rtsn;
+    wire EMIO_UART_rxd;
+    wire EMIO_UART_txd;
 
     wire FCLK_CLK1_0;
     wire baud_rate;
@@ -78,12 +79,14 @@ module top(
         .FIXED_IO_ps_clk    (FIXED_IO_ps_clk),
         .FIXED_IO_ps_porb   (FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb  (FIXED_IO_ps_srstb),
-        .EMIO_UART_ctsn     (EMIO_UART_ctsn),
-        .EMIO_UART_dcdn     (EMIO_UART_dcdn),
-        .EMIO_UART_dsrn     (EMIO_UART_dsrn),
-        .EMIO_UART_dtrn     (EMIO_UART_dtrn),
-        .EMIO_UART_ri       (EMIO_UART_ri),
-        .EMIO_UART_rtsn     (EMIO_UART_rtsn)
+//        .EMIO_UART_ctsn     (EMIO_UART_ctsn),
+//        .EMIO_UART_dcdn     (EMIO_UART_dcdn),
+//        .EMIO_UART_dsrn     (EMIO_UART_dsrn),
+//        .EMIO_UART_dtrn     (EMIO_UART_dtrn),
+//        .EMIO_UART_ri       (EMIO_UART_ri),
+//        .EMIO_UART_rtsn     (EMIO_UART_rtsn),
+        .EMIO_UART_rxd      (EMIO_UART_rxd),
+        .EMIO_UART_txd      (EMIO_UART_txd)
     );
     
     clock_divider clock_divider_10

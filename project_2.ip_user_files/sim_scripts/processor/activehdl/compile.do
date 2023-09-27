@@ -4,7 +4,7 @@ onerror {quit -force}
 transcript on
 
 vlib work
-vmap -link {C:/Users/tuankiet/Desktop/project_2/project_2.cache/compile_simlib/activehdl}
+vmap -link {C:/Users/tuankiet/Desktop/RISCV-project/project_2.cache/compile_simlib/activehdl}
 vlib activehdl/xilinx_vip
 vlib activehdl/axi_infrastructure_v1_1_0
 vlib activehdl/axi_vip_v1_1_14

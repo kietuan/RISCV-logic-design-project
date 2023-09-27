@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Wed Sep 27 11:34:52 2023
+//Date        : Wed Sep 27 17:09:59 2023
 //Host        : tuankiet running 64-bit major release  (build 9200)
 //Command     : generate_target processor_wrapper.bd
 //Design      : processor_wrapper
@@ -26,12 +26,8 @@ module processor_wrapper
     DDR_ras_n,
     DDR_reset_n,
     DDR_we_n,
-    EMIO_UART_ctsn,
-    EMIO_UART_dcdn,
-    EMIO_UART_dsrn,
-    EMIO_UART_dtrn,
-    EMIO_UART_ri,
-    EMIO_UART_rtsn,
+    EMIO_UART_rxd,
+    EMIO_UART_txd,
     FCLK_CLK1_0,
     FIXED_IO_ddr_vrn,
     FIXED_IO_ddr_vrp,
@@ -54,12 +50,8 @@ module processor_wrapper
   inout DDR_ras_n;
   inout DDR_reset_n;
   inout DDR_we_n;
-  input EMIO_UART_ctsn;
-  input EMIO_UART_dcdn;
-  input EMIO_UART_dsrn;
-  output EMIO_UART_dtrn;
-  input EMIO_UART_ri;
-  output EMIO_UART_rtsn;
+  input EMIO_UART_rxd;
+  output EMIO_UART_txd;
   output FCLK_CLK1_0;
   inout FIXED_IO_ddr_vrn;
   inout FIXED_IO_ddr_vrp;
@@ -83,12 +75,8 @@ module processor_wrapper
   wire DDR_ras_n;
   wire DDR_reset_n;
   wire DDR_we_n;
-  wire EMIO_UART_ctsn;
-  wire EMIO_UART_dcdn;
-  wire EMIO_UART_dsrn;
-  wire EMIO_UART_dtrn;
-  wire EMIO_UART_ri;
-  wire EMIO_UART_rtsn;
+  wire EMIO_UART_rxd;
+  wire EMIO_UART_txd;
   wire FCLK_CLK1_0;
   wire FIXED_IO_ddr_vrn;
   wire FIXED_IO_ddr_vrp;
@@ -113,12 +101,8 @@ module processor_wrapper
         .DDR_ras_n(DDR_ras_n),
         .DDR_reset_n(DDR_reset_n),
         .DDR_we_n(DDR_we_n),
-        .EMIO_UART_ctsn(EMIO_UART_ctsn),
-        .EMIO_UART_dcdn(EMIO_UART_dcdn),
-        .EMIO_UART_dsrn(EMIO_UART_dsrn),
-        .EMIO_UART_dtrn(EMIO_UART_dtrn),
-        .EMIO_UART_ri(EMIO_UART_ri),
-        .EMIO_UART_rtsn(EMIO_UART_rtsn),
+        .EMIO_UART_rxd(EMIO_UART_rxd),
+        .EMIO_UART_txd(EMIO_UART_txd),
         .FCLK_CLK1_0(FCLK_CLK1_0),
         .FIXED_IO_ddr_vrn(FIXED_IO_ddr_vrn),
         .FIXED_IO_ddr_vrp(FIXED_IO_ddr_vrp),

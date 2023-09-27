@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Wed Sep 27 11:34:52 2023
+//Date        : Wed Sep 27 17:09:59 2023
 //Host        : tuankiet running 64-bit major release  (build 9200)
 //Command     : generate_target processor.bd
 //Design      : processor
@@ -27,12 +27,8 @@ module processor
     DDR_ras_n,
     DDR_reset_n,
     DDR_we_n,
-    EMIO_UART_ctsn,
-    EMIO_UART_dcdn,
-    EMIO_UART_dsrn,
-    EMIO_UART_dtrn,
-    EMIO_UART_ri,
-    EMIO_UART_rtsn,
+    EMIO_UART_rxd,
+    EMIO_UART_txd,
     FCLK_CLK1_0,
     FIXED_IO_ddr_vrn,
     FIXED_IO_ddr_vrp,
@@ -55,12 +51,8 @@ module processor
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR RAS_N" *) inout DDR_ras_n;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR RESET_N" *) inout DDR_reset_n;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR WE_N" *) inout DDR_we_n;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 EMIO_UART " *) input EMIO_UART_ctsn;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 EMIO_UART " *) input EMIO_UART_dcdn;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 EMIO_UART " *) input EMIO_UART_dsrn;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 EMIO_UART " *) output EMIO_UART_dtrn;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 EMIO_UART " *) input EMIO_UART_ri;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 EMIO_UART " *) output EMIO_UART_rtsn;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 EMIO_UART RxD" *) input EMIO_UART_rxd;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 EMIO_UART TxD" *) output EMIO_UART_txd;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.FCLK_CLK1_0 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.FCLK_CLK1_0, CLK_DOMAIN processor_processing_system7_0_0_FCLK_CLK1, FREQ_HZ 1152074, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) output FCLK_CLK1_0;
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO DDR_VRN" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME FIXED_IO, CAN_DEBUG false" *) inout FIXED_IO_ddr_vrn;
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO DDR_VRP" *) inout FIXED_IO_ddr_vrp;
@@ -92,20 +84,12 @@ module processor
   wire processing_system7_0_FIXED_IO_PS_CLK;
   wire processing_system7_0_FIXED_IO_PS_PORB;
   wire processing_system7_0_FIXED_IO_PS_SRSTB;
-  wire processing_system7_0_UART_0_CTSn;
-  wire processing_system7_0_UART_0_DCDn;
-  wire processing_system7_0_UART_0_DSRn;
-  wire processing_system7_0_UART_0_DTRn;
-  wire processing_system7_0_UART_0_RI;
-  wire processing_system7_0_UART_0_RTSn;
+  wire processing_system7_0_UART_0_RxD;
+  wire processing_system7_0_UART_0_TxD;
 
-  assign EMIO_UART_dtrn = processing_system7_0_UART_0_DTRn;
-  assign EMIO_UART_rtsn = processing_system7_0_UART_0_RTSn;
+  assign EMIO_UART_txd = processing_system7_0_UART_0_TxD;
   assign FCLK_CLK1_0 = processing_system7_0_FCLK_CLK1;
-  assign processing_system7_0_UART_0_CTSn = EMIO_UART_ctsn;
-  assign processing_system7_0_UART_0_DCDn = EMIO_UART_dcdn;
-  assign processing_system7_0_UART_0_DSRn = EMIO_UART_dsrn;
-  assign processing_system7_0_UART_0_RI = EMIO_UART_ri;
+  assign processing_system7_0_UART_0_RxD = EMIO_UART_rxd;
   processor_processing_system7_0_0 processing_system7_0
        (.DDR_Addr(DDR_addr[14:0]),
         .DDR_BankAddr(DDR_ba[2:0]),
@@ -142,11 +126,7 @@ module processor
         .PS_CLK(FIXED_IO_ps_clk),
         .PS_PORB(FIXED_IO_ps_porb),
         .PS_SRSTB(FIXED_IO_ps_srstb),
-        .UART0_CTSN(processing_system7_0_UART_0_CTSn),
-        .UART0_DCDN(processing_system7_0_UART_0_DCDn),
-        .UART0_DSRN(processing_system7_0_UART_0_DSRn),
-        .UART0_DTRN(processing_system7_0_UART_0_DTRn),
-        .UART0_RIN(processing_system7_0_UART_0_RI),
-        .UART0_RTSN(processing_system7_0_UART_0_RTSn),
+        .UART0_RX(processing_system7_0_UART_0_RxD),
+        .UART0_TX(processing_system7_0_UART_0_TxD),
         .USB0_VBUS_PWRFAULT(1'b0));
 endmodule
